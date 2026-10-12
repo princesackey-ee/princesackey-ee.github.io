@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prince Sackey | Electrical & Automation Engineer</title>
+<meta name="description" content="Electrical and electronics engineer: power electronics, PCB design, robotics and PLC automation. Portfolio of projects and experience.">
+<style>
+  :root {
+    --bg: #f6f7f4;
+    --surface: #ffffff;
+    --text: #1b1f1d;
+    --muted: #5b655f;
+    --line: #dde2dc;
+    --accent: #0b6e4f;
+    --accent-soft: #e2f1ea;
+    --code: #eef1ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101412;
+      --surface: #171c19;
+      --text: #e8ece9;
+      --muted: #9aa69f;
+      --line: #28302b;
+      --accent: #4fd1a1;
+      --accent-soft: #15302a;
+      --code: #1d2420;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; padding-bottom: 12px; }
+  .brand { font-weight: 700; color: var(--text); }
+  nav a { margin-left: 18px; color: var(--muted); font-size: 14px; }
+  nav a:hover { color: var(--text); text-decoration: none; }
+
+  .hero { padding: 64px 0 40px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
+  h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; margin: 8px 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 10px 16px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text); font-weight: 600; font-size: 15px;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #08140f; } }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+  section { padding: 36px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 24px; margin: 0 0 18px; }
+  h3 { font-size: 18px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 14px; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .grid { display: grid; gap: 16px; }
+  .grid.two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 600; }
+  .status { display: inline-block; background: var(--code); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 13px; margin-bottom: 12px; }
+
+  .featured { display: grid; gap: 20px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0 14px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; width: 38%; }
+  pre {
+    background: var(--code); border: 1px solid var(--line); border-radius: 8px;
+    padding: 12px 14px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 8px 0 14px;
+  }
+  .shots { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 6px; }
+  figure { margin: 0; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  .role { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .role .when { color: var(--muted); font-size: 14px; }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin-bottom: 4px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Prince Sackey</a>
+    <nav>
+      <a href="#featured">Featured project</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="eyebrow">Electrical &amp; Electronics Engineer</div>
+      <h1>Power electronics, PCB design and industrial automation.</h1>
+      <p class="lead">
+        I design and test hardware that gets used: DC-DC power stages, motor control boards,
+        robot communication and PLC programs. Recent graduate from Istanbul University-Cerrahpaşa,
+        based in Istanbul and open to relocating internationally.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#featured">See my featured project</a>
+        <a class="btn" href="https://github.com/princesackey-ee">GitHub</a>
+      </div>
+    </div>
+
+    <section id="featured">
+      <h2>Featured project</h2>
+      <div class="card featured">
+        <div>
+          <span class="status">Simulated and PCB designed. Hardware build pending.</span>
+          <h3>220 VAC to 24 V / 12 V / 5 V DC Power Supply</h3>
+          <p class="muted">
+            A 30 W multi-rail supply: transformer and bridge rectifier feed three LTM8050 step-down
+            µModule regulators, with an LC filter on the 24 V rail. I simulated it in LTspice, drew the
+            schematic in Altium Designer and laid out the PCB.
+          </p>
+        </div>
+
+        <div>
+          <table>
+            <tr><th>Input</th><td>220 VAC, 50 Hz mains</td></tr>
+            <tr><th>Outputs</th><td>24 V, 12 V, 5 V DC</td></tr>
+            <tr><th>Rated power</th><td>30 W total</td></tr>
+            <tr><th>Regulators</th><td>3x LTM8050 (58 V input µModule buck regulator)</td></tr>
+            <tr><th>Protection</th><td>Fuse and NTC inrush limiter on the mains input, soft-start and undervoltage lockout on the 24 V stage</td></tr>
+            <tr><th>Tools</th><td>LTspice, Altium Designer</td></tr>
+          </table>
+          <pre>220 VAC -> fuse -> NTC -> transformer -> bridge rectifier -> 2x 2200 uF -> DC bus
+DC bus -> LTM8050 -> LC filter -> 24 V
+24 V   -> LTM8050 -> 12 V
+24 V   -> LTM8050 -> 5 V</pre>
+        </div>
+
+        <div>
+          <h3>What the simulation shows</h3>
+          <ul>
+            <li>The DC bus charges to about 47 V, below the LTM8050's 58 V input limit.</li>
+            <li>All three rails start cleanly within a few milliseconds and settle at 24 V, 12 V and 5 V.</li>
+            <li>The 24 V rail was noisy until I added a 4.7 µH inductor and extra capacitance at its output. With the filter it is smooth, and the 12 V and 5 V rails fed from it are clean.</li>
+            <li>Simulated load: 12 W on 24 V, 6 W on 12 V and 2.5 W on 5 V.</li>
+          </ul>
+        </div>
+
+        <div class="shots">
+          <figure>
+            <img src="assets/AC_Dc_rectifier_LTspice_Waveforms.jpg" alt="LTspice start-up waveforms for the DC bus and the 24 V, 12 V and 5 V rails" onerror="this.closest('figure').style.display='none'">
+            <figcaption>Start-up waveforms: DC bus (green), 24 V (red), 12 V (cyan), 5 V (magenta).</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/AC_DC_rectifier_LTspice_circuit.jpg" alt="LTspice schematic of the power supply" onerror="this.closest('figure').style.display='none'">
+            <figcaption>LTspice model with the 24 V LC filter.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/AC_DC_rectier_schematic.png" alt="Altium Designer schematic of the power supply" onerror="this.closest('figure').style.display='none'">
+            <figcaption>Altium schematic: rectifier, three converters, LEDs and output connectors.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/AC_DC_rectifier_pcb_top.jpg" alt="3D view of the power supply PCB, top side" onerror="this.closest('figure').style.display='none'">
+            <figcaption>PCB 3D view, top side.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/AC_DC_rectifier_pcb_bottom.jpg" alt="3D view of the power supply PCB, bottom side" onerror="this.closest('figure').style.display='none'">
+            <figcaption>PCB 3D view, 12 V and 5 V converters.</figcaption>
+          </figure>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/princesackey-ee/ac-dc-power-supply">View the repository</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="grid">
+
+        <div class="card">
+          <div class="role">
+            <h3>Robotics and Automation Intern, ASELSAN REHİS</h3>
+            <span class="when">Aug 2026 to Sep 2026 · Ankara</span>
+          </div>
+          <ul>
+            <li>Programmed a robotic arm and set the tool centre points (TCP) for multiple tools and the payload of the robot.</li>
+            <li>Designed a communication protocol between different platforms.</li>
+            <li>Wrote Python for test automation, serial communication and system validation of robot and control systems.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Serial communication</span><span class="tag">Robot programming</span><span class="tag">System testing</span></div>
+        </div>
+
+        <div class="card">
+          <div class="role">
+            <h3>Intern, Remora Robotics Technologies</h3>
+            <span class="when">Jun 2025 to Aug 2025</span>
+          </div>
+          <ul>
+            <li>Designed PCBs in Altium Designer and developed DC-DC converters with PWM motor control.</li>
+            <li>Built the Raspberry Pi to BLDC motor link: the Pi sent control signals over a protocol to command the motor and handled other parts of the robot.</li>
+            <li>Debugged hardware. The work was used in the company's robot and taken to production use.</li>
+          </ul>
+          <div class="tags"><span class="tag">Altium Designer</span><span class="tag">DC-DC converters</span><span class="tag">PWM</span><span class="tag">BLDC</span><span class="tag">Raspberry Pi</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>More projects</h2>
+      <div class="grid two">
+
+        <div class="card">
+          <h3>PLC programs, Mitsubishi FX5U</h3>
+          <p class="muted small">Programmed in GX Works3.</p>
+          <p>Ladder logic with timers, counters, data registers and analog input handling.</p>
+          <div class="tags"><span class="tag">GX Works3</span><span class="tag">Ladder logic</span><span class="tag">Analog I/O</span></div>
+        </div>
+
+        <div class="card">
+          <h3>Residential distribution panel design</h3>
+          <p class="muted small">AutoCAD Electrical.</p>
+          <p>Electrical drawings for a residential distribution panel, aligned with IEC and NEC practice.</p>
+          <div class="tags"><span class="tag">AutoCAD Electrical</span><span class="tag">IEC</span><span class="tag">NEC</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Hardware and power</h3>
+          <div class="tags"><span class="tag">Altium Designer</span><span class="tag">LTspice</span><span class="tag">DC-DC converters</span><span class="tag">PWM motor control</span><span class="tag">Hardware debugging</span></div>
+        </div>
+        <div class="card">
+          <h3>Software and simulation</h3>
+          <div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB / Simulink</span><span class="tag">Git</span><span class="tag">Linux</span></div>
+        </div>
+        <div class="card">
+          <h3>Industrial automation</h3>
+          <div class="tags"><span class="tag">Mitsubishi FX5U PLC</span><span class="tag">GX Works3</span><span class="tag">Profinet</span><span class="tag">Ethernet/IP</span><span class="tag">FAT and commissioning</span></div>
+        </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="tags"><span class="tag">English (C2)</span><span class="tag">Turkish (C1)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="card">
+        <div class="role">
+          <h3>B.Sc. Electrical and Electronics Engineering</h3>
+          <span class="when">Sep 2022 to Jul 2026</span>
+        </div>
+        <p class="muted">Istanbul University-Cerrahpaşa, Istanbul, Turkey</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>I'm looking for electronics, electrical and automation engineering roles, and I'm open to relocating internationally.</p>
+      <!-- Add your email and LinkedIn as extra buttons here, for example:
+           <a class="btn" href="mailto:you@example.com">Email</a>
+           <a class="btn" href="https://www.linkedin.com/in/your-name">LinkedIn</a> -->
+      <div class="btns">
+        <a class="btn primary" href="https://github.com/princesackey-ee">github.com/princesackey-ee</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Prince Sackey · Istanbul, Turkey</div>
+</footer>
+
+</body>
+</html>
