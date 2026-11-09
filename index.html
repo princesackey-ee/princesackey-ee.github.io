@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prince Sackey | Electrical & Automation Engineer</title>
-<meta name="description" content="Electrical and electronics engineer: power electronics, PCB design, robotics and PLC automation. Portfolio of projects and experience.">
+<title>Prince Sackey | Electrical & Electronics Engineer</title>
+<meta name="description" content="Electrical and electronics engineer: power electronics, PCB design, embedded hardware and energy harvesting. Portfolio of projects and experience.">
 <style>
   :root {
     --bg: #f6f7f4;
@@ -80,6 +80,7 @@
   .status { display: inline-block; background: var(--code); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 13px; margin-bottom: 12px; }
 
   .featured { display: grid; gap: 20px; }
+  .card.featured + .card.featured { margin-top: 20px; }
   table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0 14px; }
   th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); }
   th { color: var(--muted); font-weight: 600; width: 38%; }
@@ -106,7 +107,7 @@
   <div class="wrap">
     <a class="brand" href="#top">Prince Sackey</a>
     <nav>
-      <a href="#featured">Featured project</a>
+      <a href="#featured">Featured projects</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -119,21 +120,21 @@
   <div class="wrap">
 
     <div class="hero">
-      <div class="eyebrow">Electrical &amp; Electronics Engineer</div>
-      <h1>Power electronics, PCB design and industrial automation.</h1>
+      <div class="eyebrow">Istanbul, Turkey · Open to relocation</div>
+      <h1>Electrical and electronic engineer: power electronics and PCB design.</h1>
       <p class="lead">
         I design and test hardware that gets used: DC-DC power stages, motor control boards,
-        robot communication and PLC programs. A graduate from Istanbul University-Cerrahpaşa,
-        based in Istanbul and open to relocation.
+        robot communication and PLC programs. Recent graduate from Istanbul University-Cerrahpaşa,
+        based in Istanbul and open to relocating internationally.
       </p>
       <div class="btns">
-        <a class="btn primary" href="#featured">See my featured project</a>
+        <a class="btn primary" href="#featured">See my featured projects</a>
         <a class="btn" href="https://github.com/princesackey-ee">GitHub</a>
       </div>
     </div>
 
     <section id="featured">
-      <h2>Featured project</h2>
+      <h2>Featured projects</h2>
       <div class="card featured">
         <div>
           <span class="status">Simulated and PCB designed. Hardware build pending.</span>
@@ -195,6 +196,112 @@ DC bus -> LTM8050 -> LC filter -> 24 V
 
         <div class="btns">
           <a class="btn primary" href="https://github.com/princesackey-ee/ac-dc-power-supply">View the repository</a>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div>
+          <span class="status">Simulated in MATLAB/Simulink. Hardware prototype planned.</span>
+          <h3>TEG Energy Harvesting with P&amp;O MPPT</h3>
+          <p class="muted">
+            A 40-module TEC1-12706 thermoelectric generator array feeding a 20 kHz boost converter, controlled
+            by a Perturb &amp; Observe MPPT algorithm. I designed the TEG array and the converter, implemented the
+            controller, and validated it against theory and a fixed-duty-cycle baseline.
+          </p>
+        </div>
+
+        <div>
+          <table>
+            <tr><th>Source</th><td>40x TEC1-12706 modules (Voc 40.64 V, 8 ohm internal resistance)</td></tr>
+            <tr><th>Theoretical maximum</th><td>51.61 W at 20.32 V</td></tr>
+            <tr><th>Converter</th><td>Boost, 20 kHz, IRFZ44N MOSFET</td></tr>
+            <tr><th>Controller</th><td>Perturb &amp; Observe MPPT with deadband and tuned step size</td></tr>
+            <tr><th>Load sweep</th><td>5 to 700 ohm</td></tr>
+            <tr><th>Tools</th><td>MATLAB, Simulink, Simscape Electrical</td></tr>
+          </table>
+          <pre>TEG array (2 groups) -> boost converter (20 kHz) -> load (5 to 700 ohm)
+        ^                              |
+        +--- P&amp;O MPPT (sets duty) <----+  voltage and current feedback</pre>
+        </div>
+
+        <div>
+          <h3>What the simulation shows</h3>
+          <ul>
+            <li>97.2% average converter efficiency across the 5 to 700 ohm sweep, peaking at 97.9% (350 ohm).</li>
+            <li>The MPPT extracts over 99.9% of the 51.61 W theoretical maximum at every load from 10 ohm up.</li>
+            <li>At 5 ohm the minimum duty cycle limits tracking: the TEG delivers 47 W (about 91% of the maximum).</li>
+            <li>Debugged the controller (a Unit Delay/state conflict and the perturbation direction for a boost converter) and tuned deadband and step size for stable tracking.</li>
+            <li>Analyzed conduction, diode recovery and core losses.</li>
+          </ul>
+        </div>
+
+        <div class="shots">
+          <figure>
+            <img src="assets/TEG_MPPT_Simulink_Model.png" alt="Simulink model of the TEG array, P&amp;O MPPT controller and boost converter" onerror="this.closest('figure').style.display='none'">
+            <figcaption>Simulink model: two TEG groups, P&amp;O MPPT and boost converter.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/TEG_MPPT_Power_Current_Voltage.jpg" alt="Simulated input power, output power, output current and output voltage against load resistance" onerror="this.closest('figure').style.display='none'">
+            <figcaption>Power, current and voltage across the 5 to 700 ohm load sweep.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/TEG_Theoretical_vs_Simulated_MPPT.jpg" alt="Theoretical against simulated MPPT output power and duty cycle" onerror="this.closest('figure').style.display='none'">
+            <figcaption>Theoretical against simulated output power and duty cycle.</figcaption>
+          </figure>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/princesackey-ee/teg-mppt-boost-converter">View the repository</a>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div>
+          <span class="status">Schematic and PCB designed in Altium Designer.</span>
+          <h3>USB to CAN Converter Board</h3>
+          <p class="muted">
+            A USB-to-CAN interface built around an STM32F405RGT6. The microcontroller acts as the USB device and
+            drives an SN65HVD230 CAN transceiver, with ESD protection on both the USB and CAN sides and a DB9 CAN connector.
+          </p>
+        </div>
+
+        <div>
+          <table>
+            <tr><th>Microcontroller</th><td>STM32F405RGT6 (LQFP-64), 16 MHz crystal</td></tr>
+            <tr><th>CAN transceiver</th><td>SN65HVD230 (3.3 V), 120 ohm termination selectable with a jumper</td></tr>
+            <tr><th>Protection</th><td>PESD1CAN-UX on the CAN lines, USBLC6-4 on the USB data lines</td></tr>
+            <tr><th>Power</th><td>5 V from USB, regulated to 3.3 V by an LM1117 LDO</td></tr>
+            <tr><th>Connectors</th><td>USB input, DB9 CAN (CAN_H pin 7, CAN_L pin 2), 5-pin SWD header</td></tr>
+            <tr><th>Indicators</th><td>CAN and USB status LEDs</td></tr>
+            <tr><th>Tools</th><td>Altium Designer</td></tr>
+          </table>
+          <pre>USB 5 V -> LM1117 -> 3.3 V
+USB D+/D- -> USBLC6-4 -> STM32F405 -> CAN TX/RX -> SN65HVD230 -> PESD1CAN -> DB9</pre>
+        </div>
+
+        <div>
+          <h3>Design highlights</h3>
+          <ul>
+            <li>USB and CAN each get a dedicated ESD protection device.</li>
+            <li>Decoupling on every supply pin, plus separate filtering on the analog supply (VDDA).</li>
+            <li>SWD header for programming and debugging, with BOOT0 held low and a reset line brought out.</li>
+            <li>Selectable bus termination, so one board can sit at the end of a bus or in the middle.</li>
+          </ul>
+        </div>
+
+        <div class="shots">
+          <figure>
+            <img src="assets/USB_CAN_schematic.png" alt="Altium schematic of the USB to CAN converter: CAN connector, USB input with 3.3 V LDO, STM32F405 and supply decoupling" onerror="this.closest('figure').style.display='none'">
+            <figcaption>Altium schematic: CAN output, USB input with LDO, STM32F405.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/USB_CAN_pcb_3d.png" alt="3D view of the USB to CAN converter PCB" onerror="this.closest('figure').style.display='none'">
+            <figcaption>PCB 3D view.</figcaption>
+          </figure>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/princesackey-ee/usb-can-converter">View the repository</a>
         </div>
       </div>
     </section>
@@ -289,11 +396,12 @@ DC bus -> LTM8050 -> LC filter -> 24 V
     <section id="contact">
       <h2>Contact</h2>
       <p>I'm looking for electronics, electrical and automation engineering roles, and I'm open to relocation.</p>
-      <!-- Add your email and LinkedIn as extra buttons here, for example:
-           <a class="btn" href="mailto:you@example.com">Email</a> --> 
       <div class="btns">
-         <a class="btn primary" href="https://www.linkedin.com/in/prince-sackey-75401b232">LinkedIn</a>
-         <a class="btn primary" href="https://github.com/princesackey-ee">github.com/princesackey-ee</a>
+        <a class="btn primary" href="https://www.linkedin.com/in/prince-sackey-75401b232">LinkedIn</a>
+        <a class="btn" href="https://github.com/princesackey-ee">GitHub</a>
+        <!-- To add email, remove the comment markers and put in your address:
+        <a class="btn" href="mailto:you@example.com">Email</a>
+        -->
       </div>
     </section>
 
